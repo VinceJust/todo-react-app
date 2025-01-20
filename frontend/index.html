@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" defer src="/src/main.js"></script>
+    <title>Todo App</title>
+  </head>
+
+  <body
+    class="mt-10 flex min-h-screen w-full flex-col justify-start bg-gray-200 bg-gradient-to-bl from-[#0093E9] to-[#80D0C7]">
+    <div class="container mx-auto p-4">
+      <header class="rounded-t-lg bg-white p-4 shadow-md">
+        <h3
+          class="my-6 bg-gradient-to-r from-[#4158D0] to-[#C850C0] bg-clip-text text-center text-3xl font-bold text-transparent">
+          Todo App
+        </h3>
+        <div class="mt-4 flex justify-between">
+          <input
+            type="text"
+            name="todo"
+            placeholder="Neues Todo erstellen"
+            id="todo-item"
+            class="mr-3 w-full border p-2" />
+          <button
+            type="submit"
+            class="bg-[#0093E9] px-4 py-2 font-semibold text-white">
+            speichern
+          </button>
+        </div>
+      </header>
+      <main class="bg-white p-4">
+        <ul>
+          <li
+            class="flex items-center justify-start border-t border-gray-300 py-2">
+            <input
+              type="checkbox"
+              name="done"
+              id=""
+              class="size-5 cursor-pointer rounded border-slate-300 border-b-gray-500 transition-all checked:border-blue-600 checked:bg-blue-400 hover:shadow-md" />
+            <span class="mx-4"
+              >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+              reiciendis necessitatibus facere dolores voluptas suscipit nisi
+              aut, soluta dolorem rerum odio ipsam nemo dolore eius, quo maxime
+              dolorum non perspiciatis.</span
+            >
+            <div class="ml-auto flex space-x-2">
+              <button class="bg-[#29b83a] px-4 py-2 text-white">
+                bearbeiten
+              </button>
+              <button class="bg-[#C850C0] px-4 py-2 text-white">löschen</button>
+            </div>
+          </li>
+          <li
+            class="flex items-center justify-start border-t border-gray-300 py-2">
+            <input
+              type="checkbox"
+              name="done"
+              id=""
+              class="size-5 cursor-pointer rounded border-slate-300 border-b-gray-500 transition-all checked:border-blue-600 checked:bg-blue-400 hover:shadow-md" />
+            <span class="mx-4"
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+              voluptas ab iusto numquam aperiam sequi accusamus ad quis
+              expedita, tempore, et, veritatis perspiciatis eos a qui possimus
+              fugiat aliquam maxime!</span
+            >
+          </li>
+        </ul>
+      </main>
+      <footer>
+        <p
+          class="rounded-b-lg bg-white p-4 text-center text-sm text-gray-700 shadow-md">
+          © 2024 Todo App -
+          <a href="http://www.techstarter.de/" target="_blank">Techstarter</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
