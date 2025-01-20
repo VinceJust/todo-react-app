@@ -11,17 +11,25 @@ console.log(TODO_FILE_PATH);
 app.use(cors());
 app.use(express.json());
 
-const todos = [];
+let todos = [];
 
 try {
   if (fs.existsSync(TODO_FILE_PATH)){
     const data = fs.readFileSync(TODO_FILE_PATH, "utf-8");
     todos = JSON.parse(data);
-  }
+  } else {
+    console.log("File does not exist")
+  }  
   
 } catch (error) {
+  console.log("todo file does not exist",error);
   
 }
+
+function saveTodos() {
+  fs.writeFileSync(TODO_FILE_PATH, JSON.stringify(todos, null, 2), "utf-8");
+}
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -42,6 +50,7 @@ app.get("/todos/:id", (req, res) => {
 app.post("/todos", (req, res) => {
   const todo = req.body;
   todos.push(todo);
+  saveTodos();
   res.json(todo);
 });
 
@@ -54,6 +63,7 @@ app.put("/todos/:id", (req, res) => {
   const newTodo = req.body;
   const index = todos.findIndex((todo) => todo.id === id);
   todos[index] = newTodo;
+  saveTodos();
   res.json(todos);
 });
 
@@ -62,6 +72,7 @@ app.delete("/todos/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const index = todos.findIndex((todo) => todo.id === id);
   todos.splice(index, 1);
+  saveTodos();
   res.json({ message: "Todo deleted" });
 });
 
