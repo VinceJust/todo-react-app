@@ -1,13 +1,27 @@
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
+const TODO_FILE_PATH = path.join(__dirname, "todos.json");
+console.log(TODO_FILE_PATH);
+
 
 app.use(cors());
 app.use(express.json());
 
 const todos = [];
 
+try {
+  if (fs.existsSync(TODO_FILE_PATH)){
+    const data = fs.readFileSync(TODO_FILE_PATH, "utf-8");
+    todos = JSON.parse(data);
+  }
+  
+} catch (error) {
+  
+}
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
