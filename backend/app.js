@@ -34,6 +34,9 @@ app.post("/todos", (req, res) => {
 // update a todo
 app.put("/todos/:id", (req, res) => {
   const id = parseInt(req.params.id);
+  if (isNaN(id)) {
+    return res.status(400).json({ message: "Invalid ID" });
+  }
   const newTodo = req.body;
   const index = todos.findIndex((todo) => todo.id === id);
   todos[index] = newTodo;

@@ -88,6 +88,7 @@ async function createTodo() {
  * @param {object} todo - todo-object with the new values
  */
 async function updateTodo(todo) {
+  console.log(todo.id);
   try {
     const response = await fetch(`${API_URL}/${todo.id}`, {
       method: "PUT",
@@ -149,6 +150,7 @@ function renderTodo(todo) {
 
   // Eventlistener for the checkbox to update the todo
   checkbox.addEventListener("change", () => {
+    console.log(checkbox.checked);
     todo.done = checkbox.checked;
     updateTodo(todo);
   });
