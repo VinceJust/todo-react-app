@@ -102,7 +102,7 @@ async function updateTodo(todo) {
       );
     }
     const todos = await response.json();
-    renderTodo(todos);
+   // renderTodo(todos);
   } catch (error) {
     handleError(error);
   }
