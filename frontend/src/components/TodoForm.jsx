@@ -21,7 +21,7 @@ function TodoForm() {
         onChange={(event) => setInput(event.target.value)}
         className="flex-grow rounded border border-gray-300 p-2"
       />
-      <button type="submit" className="rounded bg-blue-500 p-2 text-white">
+      <button type="submit" className="px-4 py-2 bg-blue-500 text-white font-bold rounded-md shadow-md hover:bg-blue-600 transition duration-300">
         Hinzufügen
       </button>
     </form>

@@ -14,7 +14,7 @@ function TodoItem({ todo, onToggle, onRemove }) {
           {todo.text}
         </span>
       </label>
-      <button onClick={() => onRemove(todo.id)} className="text-red-500">
+      <button onClick={() => onRemove(todo.id)} className="text-red-500 font-bold hover:text-red-700 transition duration-200">
         Löschen
       </button>
     </li>
