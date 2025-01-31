@@ -3,7 +3,8 @@ import { useTodoStore } from "../store/todoStore";
 import TodoItem from "./TodoItem";
 
 function TodoList() {
-  const { todos, removeTodo, toggleTodo } = useTodoStore();
+  const { removeTodo, toggleTodo, getFilteredTodos } = useTodoStore();
+  const todos = getFilteredTodos();
 
   return (
     <ul className="mt-4 rounded-lg bg-white p-4 shadow-md">

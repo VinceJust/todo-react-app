@@ -6,12 +6,25 @@ const getTodosFromLocalStorage = () => {
   return storedTodos ? JSON.parse(storedTodos) : [];
 };
 
-export const useTodoStore = create((set) => ({
+export const useTodoStore = create((set, get) => ({
   todos: getTodosFromLocalStorage(),
+  filter: "all",
+
+  setFilter: (filter) => set({ filter }),
+
+  getFilteredTodos: () => {
+    const { todos, filter } = get();
+    if (filter === "completed") return todos.filter((todo) => todo.completed);
+    if (filter === "active") return todos.filter((todo) => !todo.completed);
+    return todos;
+  },
 
   addTodo: (text) =>
     set((state) => {
-      const newTodos = [...state.todos, { id: Date.now(), text, completed: false }];
+      const newTodos = [
+        ...state.todos,
+        { id: Date.now(), text, completed: false },
+      ];
       localStorage.setItem("todos", JSON.stringify(newTodos));
       return { todos: newTodos };
     }),
@@ -26,7 +39,7 @@ export const useTodoStore = create((set) => ({
   toggleTodo: (id) =>
     set((state) => {
       const newTodos = state.todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
       );
       localStorage.setItem("todos", JSON.stringify(newTodos));
       return { todos: newTodos };

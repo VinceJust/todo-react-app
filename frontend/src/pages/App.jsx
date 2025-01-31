@@ -1,6 +1,7 @@
 import React from "react";
 import TodoForm from "../components/TodoForm";
 import TodoList from "../components/TodoList";
+import Filter from "../components/Filter";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           Meine To-Do-App
         </h1>
         <TodoForm />
+        <Filter />
         <TodoList />
       </div>
     </div>
