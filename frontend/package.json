@@ -8,16 +8,23 @@
     "build": "vite build",
     "preview": "vite preview",
     "start-backend": "nodemon ../backend/app.js",
-    "dev-full": "concurrently \"npm run start-backend\" \"npm run dev\""
+    "dev-full": "concurrently \"npm run start-backend\" \"npm run dev\"",
+    "test": "vitest",
+    "test:watch": "vitest --watch"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^7.6.0",
     "eslint": "^9.19.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
+    "jsdom": "^26.0.0",
     "nodemon": "^3.0.1",
     "prettier-plugin-tailwindcss": "^0.6.10",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vitest": "^3.0.7"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.1",
